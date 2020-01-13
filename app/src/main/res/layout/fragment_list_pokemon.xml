@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+    app:spanCount="2"
     tools:context="dev.phenecy.poketop.fragments.PokemonListFragment"
-    tools:listitem="@layout/pokemon_list_item_row">
+    tools:listitem="@layout/pokemon_list_item">
 </androidx.recyclerview.widget.RecyclerView>
