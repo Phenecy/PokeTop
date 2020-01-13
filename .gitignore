@@ -335,3 +335,11 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/java,linux,macos,windows,android,intellij,androidstudio
+/app/src/androidTest/java/dev/phenecy/poketop/ExampleInstrumentedTest.kt
+/app/src/test/java/dev/phenecy/poketop/ExampleUnitTest.kt
+/app/proguard-rules.pro
+/.idea/
+/gradle/wrapper/
+/gradlew
+/gradlew.bat
+/gradle.properties
