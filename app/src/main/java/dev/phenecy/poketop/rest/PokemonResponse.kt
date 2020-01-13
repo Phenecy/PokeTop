@@ -1,53 +1,29 @@
 package dev.phenecy.poketop.rest
 
+import com.google.gson.annotations.SerializedName
+
+
 data class Pokemon(
-    val id: Int,
-    val name: String,
-    val baseExperience: Int,
-    val height: Int,
-    val isDefault: Boolean,
-    val weight: Int,
-    val sprites: PokemonSprites,
-    val locationAreaEncounters: String,
-    val abilities: List<List<Ability>>,
-    val moves: List<List<Move>>,
-    val stats: List<List<Stat>>,
-    val types: List<List<Type>>
+
+    @SerializedName("id") val id: Int,
+    @SerializedName("num") val num: Int,
+    @SerializedName("name") val name: String,
+    @SerializedName("img") val img: String,
+    @SerializedName("type") val type: List<String>,
+    @SerializedName("height") val height: String,
+    @SerializedName("weight") val weight: String,
+    @SerializedName("candy") val candy: String,
+    @SerializedName("candy_count") val candy_count: Int,
+    @SerializedName("egg") val egg: String,
+    @SerializedName("spawn_chance") val spawn_chance: Double,
+    @SerializedName("avg_spawns") val avg_spawns: Int,
+    @SerializedName("spawn_time") val spawn_time: String,
+    @SerializedName("multipliers") val multipliers: List<Double>,
+    @SerializedName("weaknesses") val weaknesses: List<String>,
+    @SerializedName("next_evolution") val next_evolution: List<Evolution>
 )
 
-data class PokemonSprites(
-    val backDefault: String?,
-    val backShiny: String?,
-    val frontDefault: String?,
-    val frontShiny: String?,
-    val backFemale: String?,
-    val backShinyFemale: String?,
-    val frontFemale: String?,
-    val frontShinyFemale: String?
-
-)
-
-data class Ability(
-    val id: Int,
-    val name: String,
-    val description: String
-)
-
-data class Move(
-    val id: Int,
-    val name: String,
-    val description: String
-)
-
-data class Stat(
-    val id: Int,
-    val name: String,
-    val baseStat: Int,
-    val effort: Int
-)
-
-data class Type(
-    val id: Int,
-    val name: String,
-    val image: String
+data class Evolution(
+    @SerializedName("num") val num : Int,
+    @SerializedName("name") val name : String
 )
