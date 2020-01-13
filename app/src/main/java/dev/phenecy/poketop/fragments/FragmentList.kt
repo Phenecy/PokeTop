@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import dev.phenecy.poketop.R
 
-class PokemonListFragment : Fragment() {
+class FragmentList : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
