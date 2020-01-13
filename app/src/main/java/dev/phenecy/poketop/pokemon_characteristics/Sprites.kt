@@ -5,6 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class Sprites(
         @SerializedName("front_default")
-        @Expose
-        private var picture: String?
+        @Expose var picture: String?
 )

@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import dev.phenecy.poketop.R
 import dev.phenecy.poketop.pokemon_characteristics.Pokemon
 
-public class Adapter(items: List<>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+public class Adapter(items: List<*>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val VIEW_ITEM: Int = 1
     private val VIEW_PROGRESS: Int = 0
     private var isEnd: Boolean = false
-    private var arrayItems: List<Any> = items
+    private var arrayItems: List<*> = items
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view: View
@@ -30,8 +30,8 @@ public class Adapter(items: List<>) : RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, i: Int) {
-        if (viewHolder instanceOf MenuView.ItemViewHolder) {
-            ((ItemViewHolder).bind((arrayItems.get(i) as Pokemon))
+        if (viewHolder instanceof MenuView.ItemViewHolder) {
+            (object : ItemViewHolder.bind((arrayItems.get(i) as Pokemon))
         }
     }
 
@@ -55,8 +55,7 @@ public class Adapter(items: List<>) : RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
-    public fun changeListItems(newList: List<Any>)
-    {
+    public fun changeListItems(newList: List<*>) {
         arrayItems = newList
         notifyDataSetChanged()
     }
@@ -64,4 +63,8 @@ public class Adapter(items: List<>) : RecyclerView.Adapter<RecyclerView.ViewHold
     public fun setEnd(isEnd: Boolean) {
         this.isEnd = isEnd
     }
+}
+
+private infix fun RecyclerView.ViewHolder.instanceof(itemViewHolder: Any): Boolean {
+    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
 }

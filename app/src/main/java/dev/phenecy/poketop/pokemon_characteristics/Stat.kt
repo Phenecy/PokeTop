@@ -6,9 +6,8 @@ import com.google.gson.annotations.SerializedName
 data class Stat(
         @SerializedName("base_stat")
         @Expose
-        private var baseStat: Int? = null,
+        private var baseStat: Int = 0   ,
 
         @SerializedName("stat")
-        @Expose
-        private var stat: StatD? = null
+        @Expose var stat: StatD? = null
 )

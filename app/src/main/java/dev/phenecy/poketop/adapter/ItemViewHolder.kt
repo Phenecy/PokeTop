@@ -9,9 +9,11 @@ import com.bumptech.glide.Glide
 import dev.phenecy.poketop.MainActivity
 import dev.phenecy.poketop.R
 import dev.phenecy.poketop.fragments.FragmentList
+import dev.phenecy.poketop.pokemon_characteristics.Pokemon
 import org.w3c.dom.Text
 
 public class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder, View.OnClickListener {
+
 
     var idPokemon: TextView
     var picturePokemon: ImageView
@@ -32,7 +34,7 @@ public class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder, View.OnCl
         fragmentList.clickOnItem(adapterPosition)
     }
 
-    public fun bin(item Pokemon) {
+    public fun bind(item Pokemon) {
         namePokemon.text = item.name
         idPokemon.text = item.id
         val urlPicture: String? = item.getSprites().getPicture()
