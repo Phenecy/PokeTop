@@ -4,11 +4,10 @@ import com.google.gson.annotations.SerializedName
 
 
 data class Pokemon(
-
     @SerializedName("id") val id: Int,
-    @SerializedName("num") val num: Int,
+    @SerializedName("num") val num: String,
     @SerializedName("name") val name: String,
-    @SerializedName("img") val img: String,
+    @SerializedName("img") val image: String,
     @SerializedName("type") val type: List<String>,
     @SerializedName("height") val height: String,
     @SerializedName("weight") val weight: String,
@@ -24,6 +23,10 @@ data class Pokemon(
 )
 
 data class Evolution(
-    @SerializedName("num") val num : Int,
-    @SerializedName("name") val name : String
+    @SerializedName("num") val num: String,
+    @SerializedName("name") val name: String
+)
+
+data class PokemonBase(
+    @SerializedName("pokemon") val pokemon: List<Pokemon>
 )
