@@ -14,14 +14,11 @@ import org.w3c.dom.Text
 
 public class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
-    var idPokemon: TextView
-    var picturePokemon: ImageView
-    var namePokemon: TextView
+    var idPokemon: TextView = itemView.findViewById(R.id.pokemon_card_id)
+    var picturePokemon: ImageView = itemView.findViewById(R.id.pokemon_card_image)
+    var namePokemon: TextView = itemView.findViewById(R.id.pokemon_card_name)
 
     init {
-        picturePokemon = itemView.findViewById(R.id.pokemon_card_image)
-        namePokemon = itemView.findViewById(R.id.pokemon_card_name)
-        idPokemon = itemView.findViewById(R.id.pokemon_card_id)
         itemView.setOnClickListener(this)
     }
 
