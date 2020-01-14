@@ -5,5 +5,6 @@ import com.google.gson.annotations.SerializedName
 
 data class StatD(
         @SerializedName("name")
-        @Expose var name: String? = null
+        @Expose
+        var name: String? = null
 )

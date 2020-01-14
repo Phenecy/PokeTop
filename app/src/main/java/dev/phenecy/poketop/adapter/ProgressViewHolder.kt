@@ -3,9 +3,5 @@ package dev.phenecy.poketop.adapter
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-class ProgressViewHolder(itemView: View) : RecyclerView.ViewHolder {
-
-    init {
-        super.itemView
-    }
+class ProgressViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 }

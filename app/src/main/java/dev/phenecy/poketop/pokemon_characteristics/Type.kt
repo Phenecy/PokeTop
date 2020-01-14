@@ -5,6 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class Type(
         @SerializedName("type")
-        @Expose
-        private var type: TypeD
+        @Expose var type: TypeD
 )

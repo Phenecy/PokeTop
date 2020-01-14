@@ -30,8 +30,8 @@ public class Adapter(items: List<*>) : RecyclerView.Adapter<RecyclerView.ViewHol
     }
 
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, i: Int) {
-        if (viewHolder instanceof MenuView.ItemViewHolder) {
-            (object : ItemViewHolder.bind((arrayItems.get(i) as Pokemon))
+        if (viewHolder is ItemViewHolder) {
+            viewHolder.bind(arrayItems[i] as Pokemon)
         }
     }
 
@@ -55,7 +55,8 @@ public class Adapter(items: List<*>) : RecyclerView.Adapter<RecyclerView.ViewHol
         }
     }
 
-    public fun changeListItems(newList: List<*>) {
+    public fun changeListItems(newList: List<Any>)
+    {
         arrayItems = newList
         notifyDataSetChanged()
     }
@@ -63,8 +64,4 @@ public class Adapter(items: List<*>) : RecyclerView.Adapter<RecyclerView.ViewHol
     public fun setEnd(isEnd: Boolean) {
         this.isEnd = isEnd
     }
-}
-
-private infix fun RecyclerView.ViewHolder.instanceof(itemViewHolder: Any): Boolean {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
 }

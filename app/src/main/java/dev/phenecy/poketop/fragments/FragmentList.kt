@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import dev.phenecy.poketop.MainActivity
 import dev.phenecy.poketop.R
 
 class FragmentList : Fragment() {
@@ -15,4 +16,5 @@ class FragmentList : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_list_pokemon, container, false)
     }
+
 }
