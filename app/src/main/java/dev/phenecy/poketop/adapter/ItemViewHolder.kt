@@ -12,32 +12,29 @@ import dev.phenecy.poketop.fragments.FragmentList
 import dev.phenecy.poketop.pokemon_characteristics.Pokemon
 import org.w3c.dom.Text
 
-public class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder, View.OnClickListener {
-
+public class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
     var idPokemon: TextView
     var picturePokemon: ImageView
     var namePokemon: TextView
 
     init {
-        super.itemView
         picturePokemon = itemView.findViewById(R.id.pokemon_card_image)
         namePokemon = itemView.findViewById(R.id.pokemon_card_name)
         idPokemon = itemView.findViewById(R.id.pokemon_card_id)
-
         itemView.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         val fragmentManager: FragmentManager = (v?.context as MainActivity).supportFragmentManager
-        val fragmentList: FragmentList = (fragmentManager.findFragmentByTag("FRAGMENT_LIST")) as FragmentList
-        fragmentList.clickOnItem(adapterPosition)
+        val fragmentList: FragmentList = fragmentManager.findFragmentByTag("FRAGMENT_LIST") as FragmentList
+//TODO:        fragmentList.clickOnItem(adapterPosition)
     }
 
-    public fun bind(item Pokemon) {
+    public fun bind(item: Pokemon) {
         namePokemon.text = item.name
-        idPokemon.text = item.id
-        val urlPicture: String? = item.getSprites().getPicture()
+        idPokemon.text = item.id.toString()
+        val urlPicture: String? = item.sprites?.picture
         if (urlPicture != null) {
             Glide
                     .with(itemView.context)

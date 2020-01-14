@@ -12,5 +12,5 @@ public interface RetrofitService {
     fun getPokemon(@Path("id") id: Int): Call<Pokemon>
 
     @GET("pokemon")
-    fun getPokemonCount(): Call<ResponseBody>
+    fun getCountPokemons(): Call<ResponseBody>
 }
