@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group
+        android:checkableBehavior="all"
+        android:visible="true">
+        <item
+            android:id="@+id/check_attack"
+            android:checked="false"
+            android:icon="@drawable/ic_swords"
+            android:iconTint="@color/colorAccent"
+            android:title="Attack"
+            android:visible="true" />
+        <item
+            android:id="@+id/check_defense"
+            android:checked="false"
+            android:icon="@drawable/ic_defense"
+            android:iconTint="@color/colorAccent"
+            android:title="Defense"
+            android:visible="true" />
+        <item
+            android:id="@+id/check_hp"
+            android:checked="false"
+            android:icon="@drawable/ic_hp"
+            android:iconTint="@color/colorAccent"
+            android:title="Health"
+            android:visible="true" />
+    </group>
+</menu>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:clickable="true"
+    android:paddingTop="16dp">
+
+    <TextView
+        android:id="@+id/text_info_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_alternates_bold"
+        android:gravity="center"
+        android:lineHeight="20dp"
+        android:text="Пикачу"
+        android:textColor="@color/card_text_color"
+        android:textSize="30sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image_info_pokemon"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ex_card_pic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_info_name" />
+
+    <TextView
+        android:id="@+id/text_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_alternates_bold"
+        android:gravity="center"
+        android:text="types: fire"
+        android:textColor="@color/colorAccent"
+        android:textSize="26sp"
+        app:layout_constraintTop_toBottomOf="@id/image_info_pokemon" />
+
+    <TextView
+        android:id="@+id/text_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_alternates_bold"
+        android:text="height: 6"
+        android:textColor="@color/card_text_color"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/text_weight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_type" />
+
+    <TextView
+        android:id="@+id/text_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_alternates_bold"
+        android:text="weight: 85"
+        android:textColor="@color/card_text_color"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_height"
+        app:layout_constraintTop_toBottomOf="@id/text_type" />
+
+    <TextView
+        android:id="@+id/text_stats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/montserrat_alternates_bold"
+        android:gravity="center"
+        android:text="stats:"
+        android:textColor="@color/colorAccent"
+        android:textSize="26sp"
+        app:layout_constraintTop_toBottomOf="@id/text_height"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/text_values_stats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:fontFamily="@font/montserrat_alternates_bold"
+        android:text="Defense: 43    Attack:52   HP: 39"
+        android:textColor="@color/card_text_color"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/text_stats" />
+
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_values_stats" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
