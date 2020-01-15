@@ -51,15 +51,15 @@ class Repository(presenter: MainContract.PresenterLayer) : MainContract.ModelLay
     }
 
     override fun saveData(data: List<*>?) {
-        arrayPokemons!!.addAll(data as Collection<Pokemon>)
+        arrayPokemons.addAll(data as Collection<Pokemon>)
     }
 
     override fun clearArray() {
-        arrayPokemons!!.clear()
+        arrayPokemons.clear()
     }
 
     override fun getPokemonInfo(index: Int): Pokemon? {
-        return arrayPokemons!![index]
+        return arrayPokemons[index]
     }
 
     override fun getArray(): List<*>? {
@@ -67,7 +67,7 @@ class Repository(presenter: MainContract.PresenterLayer) : MainContract.ModelLay
     }
 
     override fun getSizeArray(): Int {
-        return arrayPokemons!!.size
+        return arrayPokemons.size
     }
 
     override fun getCountPokemons(): Int {

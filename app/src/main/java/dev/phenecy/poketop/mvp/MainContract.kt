@@ -10,7 +10,7 @@ interface MainContract {
         fun createAdapter(items: List<*>?)
         fun insertItems()
         fun setOtherItems()
-        fun setSortedList(sortedList: List<*>?)
+        fun setSortedList(sortedList: List<Pokemon>)
         fun setNewSortedList(newSortedList: List<*>?)
         fun setUnsortedList(unsortedList: List<*>?)
         fun allItemsWasLoaded()

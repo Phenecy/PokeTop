@@ -2,16 +2,17 @@ package dev.phenecy.poketop.mvp
 
 import android.os.Bundle
 import android.util.Log
+import dev.phenecy.poketop.R
 import dev.phenecy.poketop.pokemon_characteristics.Pokemon
 import dev.phenecy.poketop.pokemon_characteristics.Stat
 import dev.phenecy.poketop.pokemon_characteristics.Type
 import java.util.*
 
-public class Presenter : MainContract.PresenterLayer {
+class Presenter : MainContract.PresenterLayer {
 
     private var mView: MainContract.ViewLayer? = null
     private var mRepository: MainContract.ModelLayer? = Repository(this)
-    private var sortеdArray: List<Pokemon>? = null
+    private var sortedArray: List<Pokemon>? = null
     private var isGetMore = false
     private var isLoadOther = false
     private var isSortByAttack = false
@@ -19,7 +20,7 @@ public class Presenter : MainContract.PresenterLayer {
     private var isSortByHp = false
 
     override fun getItems() {
-        if (isSortRequired()) mView?.createAdapter(sortеdArray) else mRepository?.getData()
+        if (isSortRequired()) mView?.createAdapter(sortedArray) else mRepository?.getData()
     }
 
     override fun getMoreItems() {
@@ -43,7 +44,7 @@ public class Presenter : MainContract.PresenterLayer {
             isGetMore = false
             if (isSortRequired()) {
                 formingSortedArray()
-                mView?.setNewSortedList(sortеdArray)
+                mView?.setNewSortedList(sortedArray)
             } else {
                 mView?.insertItems()
             }
@@ -61,7 +62,8 @@ public class Presenter : MainContract.PresenterLayer {
     override fun getInfo(index: Int): Bundle? {
         val information = Bundle()
         val pokemon: Pokemon
-        pokemon = if (isSortRequired()) sortеdArray!![index] else mRepository?.getPokemonInfo(index)!!
+        pokemon =
+            if (isSortRequired()) sortedArray!![index] else mRepository?.getPokemonInfo(index)!!
         val listTypes: List<Type>? = pokemon.types
         val listStats: List<Stat>? = pokemon.stats
         information.putString("name", pokemon.name)
@@ -78,7 +80,7 @@ public class Presenter : MainContract.PresenterLayer {
         if (mRepository?.getSizeArray() !== 0) {
             if (isSortRequired()) {
                 formingSortedArray()
-                mView?.setSortedList(sortеdArray)
+                mView?.setSortedList(sortedArray!!)
             } else {
                 mView?.setUnsortedList(mRepository?.getArray())
             }
@@ -102,28 +104,30 @@ public class Presenter : MainContract.PresenterLayer {
         mRepository?.saveData(data)
     }
 
-//TODO: ПЕРЕДЕЛАТЬ
 
     private fun changeSortMode(checkBoxId: Int, isChecked: Boolean) {
         when (checkBoxId) {
-//            R.id.check_attack -> isSortByAttack = isChecked
-//            R.id.check_defense -> isSortByDefense = isChecked
-//            R.id.check_hp -> isSortByHp = isChecked
+            R.id.check_attack -> isSortByAttack = isChecked
+            R.id.check_defense -> isSortByDefense = isChecked
+            R.id.check_hp -> isSortByHp = isChecked
         }
     }
 
     private fun isSortRequired(): Boolean {
         if (isSortByAttack) return true
         if (isSortByDefense) return true
-        return isSortByHp
+        if (isSortByHp) return true
+        return false
     }
 
     private fun formingSortedArray() {
-        sortеdArray = ArrayList<Any?>(mRepository?.getArray()!!) as List<Pokemon>
-        (sortеdArray as MutableList<Pokemon>).sortWith(Comparator { pokemon1, pokemon2 ->
-            val sumStatsPok1 = getSumStatsPokemon(pokemon1!!)
-            val sumStatsPok2 = getSumStatsPokemon(pokemon2!!)
-            if (sumStatsPok1 > sumStatsPok2) -1 else if (sumStatsPok1 < sumStatsPok2) 1 else 0
+        sortedArray = ArrayList<Any?>(mRepository!!.getArray()!!) as MutableList<Pokemon>
+        Collections.sort(sortedArray, object : Comparator<Pokemon?> {
+            override fun compare(pok1: Pokemon?, pok2: Pokemon?): Int {
+                val sumStatsPok1 = getSumStatsPokemon(pok1!!)
+                val sumStatsPok2 = getSumStatsPokemon(pok2!!)
+                return if (sumStatsPok1 > sumStatsPok2) -1 else if (sumStatsPok1 < sumStatsPok2) 1 else 0
+            }
         })
     }
 
