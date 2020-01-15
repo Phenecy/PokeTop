@@ -3,12 +3,12 @@ package dev.phenecy.poketop.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.view.menu.MenuView
+import android.widget.Adapter
 import androidx.recyclerview.widget.RecyclerView
 import dev.phenecy.poketop.R
 import dev.phenecy.poketop.pokemon_characteristics.Pokemon
 
-public class Adapter(items: List<*>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class Adapter(items: List<*>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val VIEW_ITEM: Int = 1
     private val VIEW_PROGRESS: Int = 0
@@ -19,7 +19,7 @@ public class Adapter(items: List<*>) : RecyclerView.Adapter<RecyclerView.ViewHol
         val view: View
         val holder: RecyclerView.ViewHolder
         if (viewType == VIEW_ITEM) {
-            view = LayoutInflater.from(viewGroup.context).inflate(R.layout.pokemon_list_item, viewGroup, false)
+            view = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_list_pokemon, viewGroup, false)
             holder = ItemViewHolder(view)
         } else {
             view = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_progress, viewGroup, false)
@@ -55,13 +55,13 @@ public class Adapter(items: List<*>) : RecyclerView.Adapter<RecyclerView.ViewHol
         }
     }
 
-    public fun changeListItems(newList: List<Any>)
+    fun changeListItems(newList: List<*>)
     {
         arrayItems = newList
         notifyDataSetChanged()
     }
 
-    public fun setEnd(isEnd: Boolean) {
+    fun setEnd(isEnd: Boolean) {
         this.isEnd = isEnd
     }
 }

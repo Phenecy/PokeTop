@@ -12,7 +12,7 @@ import dev.phenecy.poketop.fragments.FragmentList
 import dev.phenecy.poketop.pokemon_characteristics.Pokemon
 import org.w3c.dom.Text
 
-public class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
     var idPokemon: TextView = itemView.findViewById(R.id.pokemon_card_id)
     var picturePokemon: ImageView = itemView.findViewById(R.id.pokemon_card_image)
@@ -25,10 +25,10 @@ public class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
     override fun onClick(v: View?) {
         val fragmentManager: FragmentManager = (v?.context as MainActivity).supportFragmentManager
         val fragmentList: FragmentList = fragmentManager.findFragmentByTag("FRAGMENT_LIST") as FragmentList
-//TODO:        fragmentList.clickOnItem(adapterPosition)
+        fragmentList.clickOnItem(adapterPosition)
     }
 
-    public fun bind(item: Pokemon) {
+    fun bind(item: Pokemon) {
         namePokemon.text = item.name
         idPokemon.text = item.id.toString()
         val urlPicture: String? = item.sprites?.picture
